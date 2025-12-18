@@ -166,6 +166,13 @@ margin-right:10px;
   border-radius: 30px;
   width: 60px;
   height: 40px;
+  border: 2px double #2e1c42;
+  color:#ddd0a4;
+  font-family:"Grenze", serif;
+  font-size:large;
+}
+.buyButton:hover {
+  box-shadow:0 4px 5px 0 #704e83
 }
 .shopIcons {
   height: 30px;
