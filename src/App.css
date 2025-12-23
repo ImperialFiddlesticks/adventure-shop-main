@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.theme-default {
+  --bg-main: rgb(117, 60, 117);
+  --bg-menu: #2e1c42;
+  --bg-panel: white;
+  --bg-hover: #ddd0a4;
+
+  --text-main: #ddd0a4;
+  --text-dark: black;
+
+  --accent-gold: rgb(218, 170, 69);
+
+  --header-image: url("https://wallpapers-clan.com/wp-content/uploads/2025/03/fantasy-town-at-dusk-desktop-wallpaper-preview.jpg");
+}
+
+.theme-christmas {
+  --bg-main: #0b3d2e;
+  --bg-menu: #7a1c1c;
+  --bg-panel: #fdfdfd;
+  --bg-hover: #f1e7d0;
+
+  --text-main: #f5f5f5;
+  --text-dark: black;
+
+  --accent-gold: #d4af37;
+
+  --header-image: url("https://cdn.pixabay.com/photo/2023/08/31/08/34/ai-generated-8224777_1280.png");
+}
 
 
 #root {
@@ -23,7 +50,7 @@ a:hover {
 }
 
 .shopHeader {
-  background-image: url("https://wallpapers-clan.com/wp-content/uploads/2025/03/fantasy-town-at-dusk-desktop-wallpaper-preview.jpg");
+  background-image: var(--header-image);
   background-repeat: no-repeat;
   width: 100%;
   height: 450px;
@@ -57,19 +84,19 @@ a:hover {
   justify-content: center;
   align-items: center;
   position:relative;
-   background-color: #2e1c42;
-  border-top: 5px double rgb(218, 170, 69);
-  border-bottom: 5px double rgb(218, 170, 69);
+   background-color: var(--bg-menu);
+  border-top: 5px double var(--accent-gold);
+  border-bottom: 5px double var(--accent-gold);
   width: 100vw;
 }
 .goldCounterBox{
-  background-color: white;
+  background-color: var(--bg-panel);
  position:absolute;
  right:2rem;
  font-weight: bold;
 font-size:xx-large;
 border-radius: 20px;
-border:5px double rgb(218, 170, 69);
+border:5px double var(--accent-gold);
 }
 .goldDisplay{
  display:flex;
@@ -90,31 +117,49 @@ margin-right:10px;
   border: 1px solid transparent;
   padding: 10px;
   width: 75px;
-  background-color: #2e1c42;
+  background-color: var(--bg-menu);
   cursor: pointer;
   transition: border-color 0.25s;
   margin: 10px;
   font-size:larger;
+  color: var(--text-main)
 }
 .menuButton:hover {
   border: 1px solid #5d3066;
 }
+.modeButtonBox{
+  display:flex;
+  align-items: center;
+}
+.modeButton{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px;
+  width: 75px;
+  background-color: var(--bg-menu);
+  cursor: pointer;
+  margin: 10px;
+  font-size:larger;
+  color: var(--text-main);
+  left:2rem;
+  position:absolute;
+}
 .shopContainer {
-  background-color: rgb(117, 60, 117);
+  background-color: var(--bg-main);
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 .shopLabel {
-  background-color: white;
-  color: black;
+  background-color: var(--bg-panel);
+  color: var(--text-dark);
   width: 150px;
   height: 50px;
   margin-top: 20px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  border: 5px, double, rgb(218, 170, 69);
+  border: 5px, double, var(--accent-gold);
   border-bottom: none;
   display: flex;
   justify-content: space-around;
@@ -130,7 +175,17 @@ margin-right:10px;
   width: 15px;
   height: 15px;
 }
-.shopInventory {
+.shopInventory, .yourInventory {
+  background-color: var(--bg-panel);
+  color: var(--text-dark);
+  width: 450px;
+  min-height: 400px;
+  margin-bottom: 20px;
+  border: 5px double var(--accent-gold);
+  display: flex;
+  flex-direction: column;
+}
+/* .yourInventory {
   background-color: white;
   width: 450px;
   min-height: 400px;
@@ -138,16 +193,7 @@ margin-right:10px;
   border: 5px double rgb(218, 170, 69);
   display: flex;
   flex-direction: column;
-}
-.yourInventory {
-  background-color: white;
-  width: 450px;
-  min-height: 400px;
-  margin-bottom: 20px;
-  border: 5px double rgb(218, 170, 69);
-  display: flex;
-  flex-direction: column;
-}
+} */
 .shopLine {
   background-color: white;
   color: black;
@@ -162,12 +208,12 @@ margin-right:10px;
 }
 
 .hoverCardContent{
-  background-color:#ddd0a4;
+  background-color:var(--bg-hover);
   font-family: "Grenze", serif;
   font-size:medium;
   padding: 10px;
   border-radius: 20px;
-  border: 3px double rgb(218, 170, 69);
+  border: 3px double var(--accent-gold);
   width: 250px
 }
 .hoverCardHeader{
@@ -196,12 +242,12 @@ margin-right:10px;
 }
 
 .buyButton {
-  background-color: #5d3066;
+  background-color: var(--bg-menu);
   border-radius: 30px;
   width: 60px;
   height: 40px;
-  border: 2px double #2e1c42;
-  color:#ddd0a4;
+  border: 2px double var(--accent-gold);
+  color:var(--text-main);
   font-family:"Grenze", serif;
   font-size:large;
 }
@@ -220,10 +266,28 @@ margin-right:10px;
 }
 
 .chatPage {
-  background-color: rgb(117, 60, 117);
+  background-color: var(--bg-main);
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 500px;
+}
+.footerBox{
+  background-color: var(--bg-menu);
+  border-top:5px double var(--accent-gold);
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.copyrightBox{
+  padding: 20px;
+  color:var(--text-main);
+  font-size:larger;
+}
+.footerLinks{
+  display:flex;
+  flex-direction:column;
+  padding: 20px;
 }

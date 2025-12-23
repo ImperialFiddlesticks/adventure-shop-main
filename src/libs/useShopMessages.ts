@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export function useShopMessages(
-  defaultMessage: string = "Hello Adventurer! Welcome to my shop!"
-) {
-  const [message, setMessage] = useState(defaultMessage);
+export function useShopMessages(initialMessage: string) {
+  const [message, setMessage] = useState(initialMessage);
+  useEffect(() => {
+    setMessage(initialMessage);
+  }, [initialMessage]);
+
   function setRandomMessage(messages: string[], resetDelayMs?: number) {
     const randomIndex = Math.floor(Math.random() * messages.length);
     setMessage(messages[randomIndex]);
